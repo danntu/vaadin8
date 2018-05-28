@@ -38,7 +38,41 @@ public class MyUILabel extends UI {
            label3.setValue(valueChangeEvent.getValue());
         });
 
-        layout.addComponents(label1,label2,label3,editor);
+        Panel panel = new Panel("Panel Containing a Label and TextField");
+        panel.setWidth("600px");
+
+        FormLayout content = new FormLayout();
+        content.addComponents(label3,editor);
+        panel.setContent(content);
+
+
+        Label textLabel = new Label(
+                "Text where formatting characters, such as \\n, " +
+                        "and HTML, such as <b>here</b>, are quoted.",
+                ContentMode.TEXT);
+
+        Label preLabel = new Label(
+                "Preformatted text is shown in an HTML <pre> tag.\n" +
+                        "Formatting such as\n" +
+                        " * newlines\n" +
+                        " * whitespace\n" +
+                        "and such are preserved. HTML tags, \n"+
+                        "such as <b>bold</b>, are quoted.",
+                ContentMode.PREFORMATTED);
+
+        Label htmlLabel = new Label(
+                "In HTML mode, all HTML formatting tags, such as \n" +
+                        "<ul>"+
+                        " <li><b>bold</b></li>"+
+                        " <li>itemized lists</li>"+
+                        " <li>etc.</li>"+
+                        "</ul> "+
+                        "are preserved.",
+                ContentMode.HTML);
+
+
+
+        layout.addComponents(label1,label2,panel,textLabel,preLabel,htmlLabel);
 
         setContent(layout);
 

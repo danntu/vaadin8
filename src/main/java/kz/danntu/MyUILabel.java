@@ -89,7 +89,7 @@ public class MyUILabel extends UI {
         return tf;
     }
 
-    @WebServlet(urlPatterns = "/*", name = "MyUIServletLabel", asyncSupported = true)
+    @WebServlet(urlPatterns = {"/label/*","/VAADIN/*"}, name = "MyUIServletLabel", asyncSupported = true)
     @VaadinServletConfiguration(ui = MyUILabel.class, productionMode = false)
     public static class MyUIServlet extends VaadinServlet {
 
